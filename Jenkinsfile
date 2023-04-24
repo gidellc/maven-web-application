@@ -31,11 +31,12 @@ node
     }
     
     }
-    
+    /*
     stage('SendEmailNotification')
     {
      mail bcc: '', body: '''pipeline infos
      Regards''', cc: 'nkanyou123@yahoo.com', from: '', replyTo: '', subject: 'pipeline alert', to: 'gidengnepi2016@gmail.com'
     }
     
+    */
 }
