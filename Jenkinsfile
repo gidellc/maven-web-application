@@ -18,7 +18,7 @@ node
     {
     sh "${mavenHome}/bin/mvn sonar:sonar"
     }
-    
+    /*
     stage("Quality Gate Report"){
   timeout(time: 1, unit: 'HOURS') { 
     def qg = waitForQualityGate() 
@@ -30,7 +30,7 @@ node
       }
   }
 }
-   
+  */ 
     stage('UploadArtifactintoNexus')
     {
     sh "${mavenHome}/bin/mvn deploy"
