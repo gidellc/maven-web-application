@@ -19,6 +19,18 @@ node
     sh "${mavenHome}/bin/mvn sonar:sonar"
     }
     
+    stage("Quality Gate"){
+  timeout(time: 1, unit: 'HOURS') { 
+    def qg = waitForQualityGate() 
+    if (qg.status != 'OK') {
+      error "Pipeline aborted due to quality gate failure: ${qg.status}"
+    }
+      else {
+      error "Pipeline Executed successfully: ${qg.status}"
+      }
+  }
+}
+    
     stage('UploadArtifactintoNexus')
     {
     sh "${mavenHome}/bin/mvn deploy"
