@@ -16,7 +16,11 @@ node
     
      stage('ExecuteSonarQubeReport')
     {
+        
+    withSonarQubeEnv('SONARSERVER')
+        {
     sh "${mavenHome}/bin/mvn sonar:sonar"
+        }
     }
     /*
     stage("Quality Gate Report"){
